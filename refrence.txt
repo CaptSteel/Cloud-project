@@ -1,0 +1,2 @@
+https://medium.com/dev-genius/a-simple-way-to-build-flask-file-upload-1ccb9462bc2c
+https://stackoverflow.com/questions/24892035/how-can-i-get-the-named-parameters-from-a-url-using-flask

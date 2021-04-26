@@ -1,14 +1,28 @@
-<!doctype html>
 <html>
-  <head>
-    <title>File Upload</title>
-  </head>
-  <body>
-    <h1>File Upload</h1>
-    <form method="POST" action="" enctype="multipart/form-data">
-      <p><input type="file" name="file"></p>
-      <input type="submit" value="Upload">
-      <input type="submit" value="My links">
-    </form>
-  </body>
-</html>
+  <title>Cloud Computing</title>
+  <h2>Select file to upload</h2>
+  <p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+    {% endwith %}
+  </p>
+  <form method="post" action="/" enctype="multipart/form-data">
+      <dl>
+      <p>
+        <input type="file" name="file" autocomplete="off" required>
+      </p>
+      </dl>
+      <p>
+      <input type="submit" value="Submit">
+    </p>
+  </form>
+  <form action = "/mylinks" method = "GET">  
+    <input type="submit" value="My Links"> 
+  </form>
+</html>  
