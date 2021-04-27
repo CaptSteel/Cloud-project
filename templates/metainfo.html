@@ -4,13 +4,11 @@
     </head>
     <body>
         
-        <img src="{{ image_name }}" alt="image_name">
-        <p>
-            file name: {{ image_name }}<br>
-            size: {{ metadict[OriginalRawFileData ]}}<br>
-            timestamp: {{ metadict[DateTimeOriginal] }}<br>
-            file extension: {{ extension }}<br>
-        </p>
+        <img src="{{ url_for('static', filename = {{filedir}}) }}">
+        {% for key, value in metadict %}
+        <p>{{key}} : {{value}}</p>
+        {% endfor %}
+
     </body>
 </html>
 

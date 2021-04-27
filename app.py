@@ -56,25 +56,14 @@ def metainfo(filename):
    filedir = 'uploads\\'+ filename
    image = Image.open(image_name)# read the image data using PIL
    exifdata = image.getexif() # extract EXIF data
-   for tag_id in exifdata:
-      # get the tag name, instead of human unreadable tag id
-      tag = TAGS.get(tag_id, tag_id)
-      data = exifdata.get(tag_id)
-      # decode bytes 
-      if isinstance(data, bytes):
-         data = data.decode()
-      if 'DateTimeOriginal' in tag:
-         metadict = {"DateTimeOriginal":data}
-      if  'OriginalRawFileName' in tag:
-         metadict = {"OriginalRawFileName" : data}
-      if  'OriginalRawFileData' in tag:
-         metadict = {"OriginalRawFileData" : data}
-   return render_template('metainfo.html',metadict = metadict, image_name = image_name, filedir = filedir)
+   for tag, value in exifdata.items():
+      decoded = TAGS.get(tag, tag)
+      metadict[decoded] = value
+   return render_template('metainfo.html', metadict = metadict, image_name = image_name, filedir = filedir)
 
 @app.route('/mylinks', methods=['GET','POST'])
 def mylinks():
    return render_template('mylinks.html', mylist = mylist)
-
 
 
 if __name__ == '__main__':  
