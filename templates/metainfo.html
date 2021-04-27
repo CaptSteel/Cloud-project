@@ -5,15 +5,8 @@
     <body>
         
         <img src="{{ url_for('static', filename = 'uploads/icons8-zoom-64.png') }}">
-        exif_dict
-        {% for k, v in exif_dict.items() %}
-            %if v["raw"] is not None%
-            {{k}}<br>
-            {{- * len(k)}}<br>
-            <p>tag: {{v['tag']}}</p>
-            <p>raw: {{v['raw']}}</p>
-            <p>processed: {{v['processed']}}</p>
-        {% endfor %}
+        {{tags}}
+        
 
     </body>
 </html>

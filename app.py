@@ -1,7 +1,7 @@
 import os      # For File Manipulations like get paths, rename
 from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
-import exif
+import exifread
 
 
 
@@ -55,9 +55,9 @@ def metainfo(filename):
 
    filepath = UPLOAD_FOLDER + filename
    
-   exif_dict = exif.generate_exif_dict(filepath)
-   
-   return render_template('metainfo.html', exif_dict = exif_dict)
+   with open(filepath,'rb') as f:
+      tags = exifread.process_file(f)
+   return render_template('metainfo.html', tags=tags)
 
 @app.route('/mylinks', methods=['GET','POST'])
 def mylinks():
