@@ -54,9 +54,9 @@ def upload_file():
 def metainfo(filename):
 
    filepath = UPLOAD_FOLDER + filename
+   fdir = "upload\\" + filename
    
-   
-   with open(filepath,'rb') as f:
+   with open(filedir,'rb') as f:
       tags = exifread.process_file(f)
    return render_template('metainfo.html', tags=tags)
 
