@@ -3,12 +3,14 @@
         <title>Cloud Computing</title>
     </head>
     <body>
-        <img src="uploads\">
-        <p>
-            file name: {{metadict[OriginalRawFileName]}}<br>
-            size: {{size}}<br>
-            timestamp: {{metadict[DateTimeOriginal]}}
-            file extension: {{extension}}
+        <form method="GET" action="/show_index1"></form>
+        <img src="{{ url_for('static', filename= str(filedir) ) }}">
+        <p>    
+            {{filedir}}   
+            file name: {{ image_name }}<br>
+            size: {{ metadict[OriginalRawFileData ]}}<br>
+            timestamp: {{ metadict[DateTimeOriginal] }}<br>
+            file extension: {{ extension }}<br>
         </p>
     </body>
 </html>

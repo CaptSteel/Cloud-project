@@ -1,12 +1,13 @@
 <html>
     <head>
-        <title>Cloud Computing</title>
+        <title>My List </title>
     </head>
     <body>
-        <img src="{{url_for('static', filename='MD.png')}}">
+        <h1>List of my uploaded files<h1> 
         <p>
-            file name: {{filename}}
-            
+            {% block for i in mylist %}
+            file link: {{i}}
+            {% endblock %}
         </p>
     </body>
 </html>
