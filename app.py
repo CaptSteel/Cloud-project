@@ -11,7 +11,7 @@ app.secret_key = "secret key" # for encrypting the session
 mylist = []
 
 #It will allow below 1MB contents only
-app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 
+app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 
 
 path = os.getcwd()
 # file Upload
@@ -21,7 +21,7 @@ if not os.path.isdir(UPLOAD_FOLDER):
     os.mkdir(UPLOAD_FOLDER)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-ALLOWED_EXTENSIONS = set(['png','jpeg', 'jpg'])
+ALLOWED_EXTENSIONS = set(['png','jpeg'])
 def allowed_file(filename):
    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -54,6 +54,7 @@ def upload_file():
 def metainfo(filename):
 
    filepath = UPLOAD_FOLDER + filename
+   
    
    with open(filepath,'rb') as f:
       tags = exifread.process_file(f)
