@@ -43,8 +43,8 @@ def upload_file():
       if file and allowed_file(file.filename):
          filename = secure_filename(file.filename)
          file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) 
-         flash('http://127.0.0.1:5000/metainfo/'+filename)
-         mylist.append('http://127.0.0.1:5000/metainfo/'+filename)
+         flash('http://metadatadisplay.azurewebsites.net/metainfo/'+filename)
+         mylist.append('http://metadatadisplay.azurewebsites.net/'+filename)
          return redirect('/')
       else:
          flash('Allowed file types are png and jpeg only!')
@@ -56,7 +56,7 @@ def metainfo(filename):
    filepath = UPLOAD_FOLDER + filename
    fdir = "upload\\" + filename
    
-   with open(filedir,'rb') as f:
+   with open(fdir,'rb') as f:
       tags = exifread.process_file(f)
    return render_template('metainfo.html', tags=tags)
 
