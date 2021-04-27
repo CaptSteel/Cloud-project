@@ -5,9 +5,9 @@
     <body>
         <h1>List of my uploaded files<h1> 
         <p>
-            {% block for i in mylist %}
-            file link: {{i}}
-            {% endblock %}
+            {% for i in mylist %}
+            <p>file link: {{i}}</p>
+            {% endfor %}
         </p>
     </body>
 </html>

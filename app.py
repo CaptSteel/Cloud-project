@@ -72,7 +72,7 @@ def metainfo(filename):
    return render_template('metainfo.html',metadict = metadict, image_name = image_name, filedir = filedir)
 
 @app.route('/mylinks', methods=['GET','POST'])
-def mylist():
+def mylinks():
    return render_template('mylinks.html', mylist = mylist)
 
 

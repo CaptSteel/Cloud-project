@@ -3,10 +3,9 @@
         <title>Cloud Computing</title>
     </head>
     <body>
-        <form method="GET" action="/show_index1"></form>
-        <img src="{{ url_for('static', filename= str(filedir) ) }}">
-        <p>    
-            {{filedir}}   
+        
+        <img src="{{ image_name }}" alt="image_name">
+        <p>
             file name: {{ image_name }}<br>
             size: {{ metadict[OriginalRawFileData ]}}<br>
             timestamp: {{ metadict[DateTimeOriginal] }}<br>
